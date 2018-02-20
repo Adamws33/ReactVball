@@ -30,7 +30,7 @@ class Login extends Component {
                 'Content-Type': 'application/json'
               })
         }).then(
-            (response) => response.json()
+            (response) => response.json(),
         ).then((data) => {
             this.props.setToken(data.sessionToken)
 
@@ -43,7 +43,7 @@ class Login extends Component {
 
             <div>
                 <h1>Login</h1>
-                <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus repellat, atque nulla, soluta vero reprehenderit numquam incidunt, rem quaerat quos voluptatum perferendis. Distinctio culpa iste atque blanditiis placeat qui ipsa?</h6>
+                <h6>Please enter your e-mail and password to log in.  </h6>
                 <Form onSubmit={this.handleSubmit} >
                     <FormGroup>
                         <Label for="username">Username</Label>

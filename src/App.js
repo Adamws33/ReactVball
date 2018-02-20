@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Auth from './auth/Auth';
-import SiteBar from './home/Navbar';
+import SiteBar from './Navbar/Navbar';
 import Splash from './home/Splash';
+import SideBar from './Sidebar/SideBar';
 import {
   BrowserRouter as Router,
   Route
@@ -11,7 +12,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      sessionToken: ''
+      sessionToken: '',
+      loggedIn: false
     }
 
     this.setSessionState = this.setSessionState.bind(this);
@@ -21,7 +23,7 @@ class App extends Component {
 
   setSessionState(token) {
     localStorage.setItem('token', token);
-    this.setState({ sessionToken: token });
+    this.setState({ sessionToken: token, loggedIn: true});
 
   }
 
@@ -29,13 +31,14 @@ class App extends Component {
     const token = localStorage.getItem('token')
 
     if (token && !this.state.sessionToken) {
-      this.setState({ sessionToken: token });
+      this.setState({ sessionToken: token, loggedIn: true });
     }
   }
 
   logout(){
-    this.setState({ sessionToken: '' });
+    this.setState({ sessionToken: '', loggedIn: false });
     localStorage.removeItem('token');
+    console.log(this.state.sessionToken)
   }
 
   protectedViews() {
@@ -60,7 +63,9 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <SiteBar clickLogout={this.logout}/>
+          <SiteBar clickLogout={this.logout} loggedIn={this.state.loggedIn} />
+          {this.state.loggedIn ? <SideBar  /> : null}          
+          {/* <SiteBar clickLogout={this.logout} loggedIn={this.state.sessionToken} /> */}
           {this.protectedViews()}
         </div>
       </Router>

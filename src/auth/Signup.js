@@ -22,6 +22,7 @@ class Signup extends Component {
     }
 
     handleSubmit(event) {
+        console.log(this.state)
         fetch("http://localhost:3000/api/user", {
             method: 'POST',
             body: JSON.stringify({user:this.state}),
@@ -30,7 +31,10 @@ class Signup extends Component {
               })
 
         }).then(
-            (response) => response.json()
+            (response) => response.json(),
+            (res)=>{
+            console.log(res)
+            }
         ).then((data) => {
             this.props.setToken(data.sessionToken)
 
@@ -52,7 +56,13 @@ class Signup extends Component {
         return (
             <div>
                 <h1>Sign Up</h1>
-                <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus repellat, atque nulla, soluta vero reprehenderit numquam incidunt, rem quaerat quos voluptatum perferendis. Distinctio culpa iste atque blanditiis placeat qui ipsa?</h6>
+                <h6>Please enter your Email and a password to sign up</h6>
+                <h5> Password Must Contain</h5>
+                    <ul>
+                        <li>5 characters</li>
+                        <li>At least one number</li>
+                        <li>At least one letter</li>
+                    </ul>
                 <Form onSubmit={submitHandler} >
                     <FormGroup>
                         <Label for="username">username</Label>
