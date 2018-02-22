@@ -46,9 +46,6 @@ class SiteBar extends React.Component {
                                 <Button><Link to="/events">Upcoming Events</Link></Button>
                             </NavItem>
                             <NavItem>
-                                <Button ><Link to="/about"> About Us </Link></Button>
-                            </NavItem>
-                            <NavItem>
                                 <Button ><Link to="/message"> Message Board </Link></Button>
                             </NavItem>
                             <NavItem>

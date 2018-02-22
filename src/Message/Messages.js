@@ -8,17 +8,21 @@ export class Messages extends Component {
     return (
 
         <div className="dropdown">
+          <div className="who ">
             <Label for="maleFemale"><h3>Please select who you will need:</h3></Label>
-            <Input className="input " type="select" name="select" onChange={this.partner} id="maleFemale">
+            <Input className="input " type="select" name="select" id="maleFemale">
               <option>Male</option>
               <option>Female</option>
             </Input>
+          </div>
+          <div className="division ">
             <Label className="labelDiv" for="intComp"><h3>Please select the desired division:</h3></Label>
-            <Input className="input " type="select" name="select" onChange={this.partner} id="intComp">
+            <Input className="input " type="select" name="select" id="intComp">
               <option>Intermediate</option>
               <option>Competitive</option>
             </Input>
-            <button type="submit" className="partnerButton float-right btn btn-success">Submit</button>
+          </div>
+          <button type="submit" className="partnerButton float-right btn btn-success">Submit</button>
         </div>
 
     );
