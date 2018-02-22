@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
-  }
 
-   
   render() {
     return (
 
-        <div>
-          <h1>Welcome Home</h1>
+        <div className="main">
+          <div className="mainDiv">
+            <h1 className="text-center">Welcome Home</h1><hr/>
+          </div>
         </div>
 
     );

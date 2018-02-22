@@ -9,6 +9,8 @@ import {
     NavLink,
     Button
 } from 'reactstrap';
+import { Link } from 'react-router-dom'
+
 import './navbar.css'
 
 
@@ -38,13 +40,16 @@ class SiteBar extends React.Component {
                         <Nav className="ml-auto" navbar>
                             <NavItem>
                                     {/* registration */}
-                                <Button href="/home">Home </Button> 
+                                <Button><Link to="/home">Home</Link></Button> 
                             </NavItem>
                             <NavItem>
-                                <Button>Upcoming Events</Button>
+                                <Button><Link to="/events">Upcoming Events</Link></Button>
                             </NavItem>
                             <NavItem>
-                                <Button > About Us </Button>
+                                <Button ><Link to="/about"> About Us </Link></Button>
+                            </NavItem>
+                            <NavItem>
+                                <Button ><Link to="/message"> Message Board </Link></Button>
                             </NavItem>
                             <NavItem>
                                 <Button onClick={() => this.props.clickLogout()}> {this.props.loggedIn ? "Logout": "Login"} </Button>

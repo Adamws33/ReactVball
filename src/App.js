@@ -3,6 +3,8 @@ import Auth from './auth/Auth';
 import SiteBar from './Navbar/Navbar';
 import Splash from './home/Splash';
 import SideBar from './Sidebar/SideBar';
+// import Home from './home/Home';
+import './App.css';
 import {
   BrowserRouter as Router,
   Route
@@ -63,9 +65,9 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <SiteBar clickLogout={this.logout} loggedIn={this.state.loggedIn} />
-          {this.state.loggedIn ? <SideBar  /> : null}          
+          <SiteBar clickLogout={this.logout} loggedIn={this.state.loggedIn} />{this.state.loggedIn ? <SideBar  /> : null}          
           {/* <SiteBar clickLogout={this.logout} loggedIn={this.state.sessionToken} /> */}
+
           {this.protectedViews()}
         </div>
       </Router>
